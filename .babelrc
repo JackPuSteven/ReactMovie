@@ -1,0 +1,10 @@
+{
+    "presets" :["env", "stage-0", "react"],
+    "plugins": ["transform-runtime", 
+        ["import", {  //配置 ant design 的文件按需导入即可
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": "css" // `style: true` 会加载 less 文件
+      }]],
+   
+}

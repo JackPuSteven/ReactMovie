@@ -1,0 +1,21 @@
+.box{
+
+    border : 1px solid #ccc;
+    text-align: center;
+    width: 170px;
+    margin: 6px;
+    box-shadow: 0 0 6px #ccc;
+    padding: 4px;
+    cursor: pointer; //设置指向这个div时，变成一只手
+
+    transition: all 0.3s ease;//设置动画延迟效果
+    .img{
+        width:100px;
+        height:140px;
+    }
+
+    &:hover{
+        opacity: 0.9;
+        transform: rotate(1deg) scale(1.03); //设置旋转动画
+    }
+}

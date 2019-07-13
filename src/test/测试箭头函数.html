@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 要点：箭头函数指向外面一层的this -->
+
+    <!-- 普通funciton谁调用它就指向谁，比如 -->
+
+    <button id="btn">按钮</button>
+    <script>
+        // onload = function(){
+        //     const btn = document.getElementById("btn")
+
+        //     btn.onclick = function(){
+            // 这里的this指向btn
+        //         this.style.backgroundColor = "red"
+        //     }
+        // }
+        onload = function(){
+            const btn = document.getElementById("btn")
+
+
+            console.log(this)
+            btn.onclick = function() {
+                // 这里的this指向的是上面打印的那个this,就是指向最外层，然后上一层的this
+                // this.style.backgroundColor = "red"
+
+                // setTimeout是属于window的，省略了 window.setTimeout(function(){}, 1000)
+                // 不能这样子，改造成箭头函数
+                // setTimeout(function(){
+                //     this.style.backgroundColor = "red"
+                // }, 1000)
+                
+                setTimeout(() =>{
+                    // 箭头函数的外层就是this
+                    this.style.backgroundColor = "red"
+                }, 1000)
+            }
+        }
+    </script>
+    
+</body>
+</html>
